@@ -2,11 +2,20 @@ console.log('Starting app.js');
 
 const notes = require('./notes');
 
-console.log(notes);
+var command = process.argv[2];
 
-var alter = notes.age + 2;
+console.log('Command:', command);
+console.log('Argv:', process.argv);
 
-console.log(alter);
+// add
 
-var result = notes.add(5,7);
-console.log('Result:', result);
+// remove
+// node app.js remove --title Mein Hund
+// node app.js remove --title "Hund"
+// node app.js remove --title=Hund
+// node app.js remove --title="Hund"
+
+// list
+// read
+
+// { title: "Mein Hund", body: "Geh mit dem Hund spazieren."}
