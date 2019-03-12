@@ -5,10 +5,9 @@ const os = require('os');
 
 const user = os.userInfo();
 
-//Console.WriteLine($"Hallo {user}");
-
-
 console.log(user.username);
+
+//Console.WriteLine($"Hallo {user}");
 
 // template string
 fs.appendFileSync('greetings.txt', `Hello, ${user.username}!`);
