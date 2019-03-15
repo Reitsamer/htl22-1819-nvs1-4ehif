@@ -28,7 +28,7 @@ const body = 'Bla bla bla';
 if (command === 'add') {
   notes.addNote(title, body);
 } else if (command === 'list') {
-
+  notes.listNotes();
 } else if (command === 'read') {
 
 } else if (command === 'remove') {
