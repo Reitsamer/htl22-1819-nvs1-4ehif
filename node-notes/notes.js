@@ -1,7 +1,9 @@
-console.log('Starting notes.js');
+// console.log('Starting notes.js');
 
-module.exports.age = 16;
+var addNote = (title, body) => {
+  console.log('addNote:', title, body);
+}
 
-// add (x, y) --> x + y
-
-module.exports.add = (x, y) => x + y;
+module.exports = {
+  addNote   // addNote: addNote
+};
