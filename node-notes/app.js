@@ -1,11 +1,16 @@
 console.log('Starting app.js');
 
+const yargs = require('yargs');
+
 const notes = require('./notes');
 
 var command = process.argv[2];
+var argv = yargs.argv;
 
 console.log('Command:', command);
 console.log('Argv:', process.argv);
+console.log('------');
+console.log(yargs.argv);
 
 // add --title="Sport machen" --body="Fahre ins Gym."
 
@@ -22,17 +27,14 @@ console.log('Argv:', process.argv);
 
 console.log(notes);
 
-const title = 'Test';
-const body = 'Bla bla bla';
-
 if (command === 'add') {
-  notes.addNote(title, body);
+  notes.addNote(argv.title, argv.body);
 } else if (command === 'list') {
   notes.listNotes();
 } else if (command === 'read') {
-  notes.getNote(title);
+  notes.getNote(argv.title);
 } else if (command === 'remove') {
-  notes.removeNote(title);
+  notes.removeNote(argv.title);
 } else {
   console.error('Command not recognized.');
 }
