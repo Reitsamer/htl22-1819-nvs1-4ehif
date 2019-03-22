@@ -7,7 +7,7 @@ var command = process.argv[2];
 console.log('Command:', command);
 console.log('Argv:', process.argv);
 
-// add
+// add --title="Sport machen" --body="Fahre ins Gym."
 
 // remove
 // node app.js remove --title Einkaufen
@@ -16,7 +16,7 @@ console.log('Argv:', process.argv);
 // node app.js remove --title="Einkaufen"
 
 // list
-// read
+// read --title="Sport machen"
 
 // { title: "Einkaufen", body: "Eier, Milch, Butter."}
 
@@ -30,9 +30,9 @@ if (command === 'add') {
 } else if (command === 'list') {
   notes.listNotes();
 } else if (command === 'read') {
-
+  notes.getNote(title);
 } else if (command === 'remove') {
-
+  notes.removeNote(title);
 } else {
   console.error('Command not recognized.');
 }
