@@ -1,16 +1,9 @@
-console.log('Starting app.js');
-
 const yargs = require('yargs');
 
 const notes = require('./notes');
 
 var command = process.argv[2];
 var argv = yargs.argv;
-
-console.log('Command:', command);
-console.log('Argv:', process.argv);
-console.log('------');
-console.log(yargs.argv);
 
 // add --title="Sport machen" --body="Fahre ins Gym."
 
@@ -25,16 +18,32 @@ console.log(yargs.argv);
 
 // { title: "Einkaufen", body: "Eier, Milch, Butter."}
 
-console.log(notes);
-
 if (command === 'add') {
-  notes.addNote(argv.title, argv.body);
+  if (notes.addNote(argv.title, argv.body)) {
+    console.log('Added note successfully.');
+  } else {
+    console.log('Note already existed.');
+  }
 } else if (command === 'list') {
-  notes.listNotes();
+
+  var allNotes = notes.getAllNotes();
+  allNotes.forEach((note) => notes.logNote(note));
+
 } else if (command === 'read') {
-  notes.getNote(argv.title);
+
+  var foundNote = notes.getNote(argv.title);
+  if (foundNote) {
+    notes.logNote(foundNote);
+  } else {
+    console.log('Note not found.');
+  }
+
 } else if (command === 'remove') {
-  notes.removeNote(argv.title);
+  if (notes.removeNote(argv.title)) {
+    console.log('Note removed.');
+  } else {
+    console.log('Note not found.');
+  }
 } else {
   console.error('Command not recognized.');
 }
