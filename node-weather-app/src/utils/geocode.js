@@ -16,10 +16,12 @@ const geocode = (location, callback) => {
             return
         }
 
+        const place_name = response.body.features[0].place_name
         const latitude = response.body.features[0].center[0]
         const longitude = response.body.features[0].center[1]
 
         callback(undefined, {
+            place_name,
             latitude,
             longitude
         })
