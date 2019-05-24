@@ -33,7 +33,7 @@ const getFilename = (request) => {
     if (filename === '/')
         filename = '/index.html'
 
-    return 'public' + filename
+    return 'public_html' + filename
 }
 
 const getExtension = (filename) => {
