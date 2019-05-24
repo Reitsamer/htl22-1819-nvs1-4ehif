@@ -58,5 +58,6 @@ const sendError = (res, errorCode) => {
 }
 
 module.exports = {
-    respondToStaticRequest
+    respondToStaticRequest,
+    sendError
 }
